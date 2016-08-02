@@ -12,7 +12,7 @@ boilerplate code for unit-testing, code coverage, ci - all integrated through cm
 
  - Latest GCC version (currently 6) - http://askubuntu.com/questions/746369/how-can-i-install-and-use-gcc-6-on-xenial
  - Install build essentials - http://askubuntu.com/questions/398489/how-to-install-build-essential
- - Cmake version >= 3.5, check by executing `cmake --version`
+ - Cmake version >= 3.5, check by executing `cmake --version`, if lower - http://www.claudiokuenzler.com/blog/611/installing-cmake-3.4.1-ubuntu-14.04-trusty-using-alternatives
  - Install git `sudo apt-get install git`
 
 

@@ -7,6 +7,8 @@ class Dog {
 
   public:
 	Dog(std::string name);
-	void bark();
+	std::string getName();
+	int getAge();
+	std::string bark();
 };
 

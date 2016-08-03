@@ -3,6 +3,21 @@ project('cppb', 'cpp', version : '0.1.0',
 
 inc = include_directories('include')
 
+thread_dep = dependency('threads')
+gtest = dependency('gtest', required : false)
+
+if not gtest.found()
+    gtest_proj = subproject('gtest')
+    gtest_inc = gtest_proj.get_variable('incdir')
+    gtest_proj.get_variable('incdir')
+    gtest_lib = static_library('gtest', gtest_proj.get_variable('libsources'),
+                                gtest_proj.get_variable('mainsources'),
+                                include_directories : gtest_inc)
+
+    gtest = declare_dependency(include_directories : gtest_inc,
+                               link_with : gtest_lib)
+endif
+
 subdir('src')
 subdir('test')
 

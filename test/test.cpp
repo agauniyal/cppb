@@ -1,9 +1,11 @@
 #include "dog.h"
-#include <iostream>
+#include<gtest/gtest.h>
 
-int main()
-{
-	std::cout << "TESTING";
-	return 0;
+TEST(basic_test, eq_works) {
+    ASSERT_EQ(0, 1-1) << "Equality is broken. Mass panic!";
+}
+
+TEST(basic_test, neq_works) {
+    ASSERT_NE(15, 106) << "Inequal is equal. The foundations of space and time are in jeopardy.";
 }
 

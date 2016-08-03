@@ -26,5 +26,7 @@ boilerplate code for unit-testing, code coverage, ci - all integrated.
  - fire up meson and ninja
      `meson .. && ninja`
 
+ - tests - `ninja test`
+
  - execute binaries created inside build directory
 

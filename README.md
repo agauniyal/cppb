@@ -1,4 +1,4 @@
-# cppb [![wercker status](https://app.wercker.com/status/f558077221e8bbe3323ad0071ca59af3/s/master "wercker status")](https://app.wercker.com/project/bykey/f558077221e8bbe3323ad0071ca59af3) [![Coverage Status](https://coveralls.io/repos/github/agauniyal/cppb/badge.svg?branch=HEAD)](https://coveralls.io/github/agauniyal/cppb?branch=HEAD)
+# cppb ![language](https://img.shields.io/badge/language-c++11-green.svg?style=flat-square) [![wercker status](https://app.wercker.com/status/f558077221e8bbe3323ad0071ca59af3/s/master "wercker status")](https://app.wercker.com/project/bykey/f558077221e8bbe3323ad0071ca59af3) [![Coverage Status](https://coveralls.io/repos/github/agauniyal/cppb/badge.svg?branch=HEAD)](https://coveralls.io/github/agauniyal/cppb?branch=HEAD)
 
 boilerplate code for unit-testing, code coverage, ci - all integrated.
 

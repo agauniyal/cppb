@@ -1,0 +1,215 @@
+box: ubuntu
+
+start-build:
+
+  steps:
+
+    - script:
+        name: report system
+        code: |
+          cat /proc/version
+
+
+build-gcc-default:
+
+  steps:
+
+    - script:
+        name: update system
+        code: |
+          export DEBIAN_FRONTEND=noninteractive
+          apt-get -y update && apt-get -y upgrade
+
+    - script:
+        name: install meson & dependencies
+        code: |
+          apt-get -y install git curl meson python3 ninja-build
+
+    - script:
+        name: install gcc
+        code: |
+          apt-get -y install build-essential gcc g++
+
+    - script:
+        name: echo gcc version
+        code: |
+          gcc --version
+          g++ --version
+
+    - script:
+        name: build project
+        code: |
+          mkdir build && cd build
+          meson ..
+          ninja
+
+    - script:
+        name: test project
+        code: |
+          cd build
+          ninja test
+          ./test/testexe
+
+    - script:
+        name: run project
+        code: |
+          cd build
+          ./src/mainexe
+
+
+build-gcc-5:
+
+  steps:
+
+    - script:
+        name: update system
+        code: |
+          export DEBIAN_FRONTEND=noninteractive
+          apt-get -yq update && apt-get -yq upgrade
+          apt-get install -yq software-properties-common
+          add-apt-repository ppa:ubuntu-toolchain-r/test -y
+          apt-get -y update && apt-get -y upgrade
+
+    - script:
+        name: install meson & dependencies
+        code: |
+          apt-get -y install git curl meson python3 ninja-build
+
+    - script:
+        name: install gcc 5
+        code: |
+          apt-get -y install gcc-5 g++-5
+          update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 100
+          update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 100
+          apt-get -y install build-essential
+          update-alternatives --config gcc
+          update-alternatives --config g++
+
+    - script:
+        name: echo gcc version
+        code: |
+          gcc --version
+          g++ --version
+
+    - script:
+        name: build project
+        code: |
+          mkdir build && cd build
+          meson ..
+          ninja
+
+    - script:
+        name: test project
+        code: |
+          cd build
+          ninja test
+          ./test/testexe
+
+    - script:
+        name: run project
+        code: |
+          cd build
+          ./src/mainexe
+
+
+build-gcc-6:
+
+  steps:
+
+    - script:
+        name: update system
+        code: |
+          export DEBIAN_FRONTEND=noninteractive
+          apt-get -yq update && apt-get -yq upgrade
+          apt-get install -yq software-properties-common
+          add-apt-repository ppa:ubuntu-toolchain-r/test -y
+          apt-get -y update && apt-get -y upgrade
+
+    - script:
+        name: install meson & dependencies
+        code: |
+          apt-get -y install git curl meson python3 ninja-build
+
+    - script:
+        name: install gcc 6
+        code: |
+          apt-get -y install gcc-6 g++-6
+          update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-6 100
+          update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 100
+          apt-get -y install build-essential
+          update-alternatives --config gcc
+          update-alternatives --config g++
+
+    - script:
+        name: echo gcc version
+        code: |
+          gcc --version
+          g++ --version
+
+    - script:
+        name: build project
+        code: |
+          mkdir build && cd build
+          meson ..
+          ninja
+
+    - script:
+        name: test project
+        code: |
+          cd build
+          ninja test
+          ./test/testexe
+
+    - script:
+        name: run project
+        code: |
+          cd build
+          ./src/mainexe
+
+
+build-clang-default:
+
+  steps:
+
+    - script:
+        name: update system
+        code: |
+          export DEBIAN_FRONTEND=noninteractive
+          apt-get -y update && apt-get -y upgrade
+
+    - script:
+        name: install meson & dependencies
+        code: |
+          apt-get -y install git curl meson python3 ninja-build
+
+    - script:
+        name: install clang
+        code: |
+          apt-get -y install build-essential clang
+
+    - script:
+        name: echo clang version
+        code: |
+          clang --version
+          clang++ --version
+
+    - script:
+        name: build project
+        code: |
+          CXX=clang++
+          mkdir build && cd build
+          CXX=clang++ meson ..
+          ninja
+
+    - script:
+        name: test project
+        code: |
+          cd build
+          ninja test
+          ./test/testexe
+
+    - script:
+        name: run project
+        code: |
+          cd build
+          ./src/mainexe

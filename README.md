@@ -1,4 +1,5 @@
-# cppb
+# cppb [![wercker status](https://app.wercker.com/status/d27910218ebff2a9ceb26bc4e69d4660/s "wercker status")](https://app.wercker.com/project/bykey/d27910218ebff2a9ceb26bc4e69d4660)
+
 boilerplate code for unit-testing, code coverage, ci - all integrated.
 
 ###Things to install before proceeding further

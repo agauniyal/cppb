@@ -4,7 +4,7 @@ project('cppb', 'cpp', version : '0.1.0',
 inc = include_directories('include')
 
 thread_dep = dependency('threads')
-gtest = dependency('gtest', required : false)
+gtest = dependency('gtest', main : true, required : false)
 
 if not gtest.found()
     gtest_proj = subproject('gtest')
